@@ -15,6 +15,7 @@ public class ServletExController {
     * 서버내에서 Exception이 터질경우, WAS는 무조건 해당 Error를 Http 500 Error로 취급한다. */
     @GetMapping("/error-ex")
     public void errorEx() {
+        log.info("errorEx");
         throw new RuntimeException("예외 발생");
     }
 
