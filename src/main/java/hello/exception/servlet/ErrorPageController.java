@@ -66,6 +66,15 @@ public class ErrorPageController {
         log.info("ERROR_REQUEST_URI: {}", request.getAttribute(ERROR_REQUEST_URI));
         log.info("ERROR_SERVLET_NAME: {}", request.getAttribute(ERROR_SERVLET_NAME));
         log.info("ERROR_STATUS_CODE: {}", request.getAttribute(ERROR_STATUS_CODE));
+
+        /* 
+            서블릿은 실제 고객이 요청한 것인지, 서버가 내부에서 오류 페이지를 요청하는 것인지 DispatchType으로 구분할 수 있는 방법을 제공한다.
+            REQUEST: 클라이언트 요청
+            ERROR: 오류 요청
+            FORWARD: MVC에서 배웠던 서블릿에서 다른 서블릿이나 JSP를 호출할 때(RequestDispatcher.forward(request, response)
+            INCLUDE: 서블릿에서 다른 서블릿이나 JSP의 결과를 포함할 때(RequestDispatcher.include(reqeust, response)
+            ASYNC: 서블릿 비동기 호출
+        */
         log.info("dispatchType={}", request.getDispatcherType());
     }
 }

@@ -14,7 +14,7 @@ public class LogInterceptor implements HandlerInterceptor {
         String uuid = UUID.randomUUID().toString();
         String requestURI = request.getRequestURI();
 
-        log.info("Interceptor preHandle Call [{}][{}]", uuid, requestURI);
+        log.info("Interceptor preHandle Call [{}][{}][{}]", uuid, request.getDispatcherType(), requestURI);
 
         return true;
     }
