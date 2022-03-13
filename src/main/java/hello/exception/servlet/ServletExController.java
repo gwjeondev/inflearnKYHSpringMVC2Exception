@@ -29,8 +29,20 @@ public class ServletExController {
         //기본적으로 error Msg는 default로 숨김처리 되어있으나, 이것을 꺼내서 사용할 수 있는 방법도 있다고 한다.
         response.sendError(404, "404 오류!");
     }
+
+    @GetMapping("/error-400")
+    public void error400(HttpServletResponse response) throws IOException {
+        //기본적으로 error Msg는 default로 숨김처리 되어있으나, 이것을 꺼내서 사용할 수 있는 방법도 있다고 한다.
+        response.sendError(400, "404 오류!");
+    }
+
     @GetMapping("/error-500")
     public void error500(HttpServletResponse response) throws IOException {
         response.sendError(500);
+    }
+
+    @GetMapping("/error-503")
+    public void error503(HttpServletResponse response) throws IOException {
+        response.sendError(503);
     }
 }
